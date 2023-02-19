@@ -1,56 +1,5 @@
-public class Bai4 {
-    public static void main(String[] args){
-        Rational P1 = new Rational(15, 10);
-        Rational P2 = new Rational(5,6);
-        System.out.println("Phan so P1: "+P1.toString());
-        P1.reduce();
-        System.out.println("Phan so P1 toi gian: "+P1.toString());
-        // P3 là phan so trung gian cho cac phep toan
-        Rational P3= new Rational();
-        P3.setDen(P1.getDen());
-        P3.setNum(P1.getNum());
-        P3.reciprocal();
-        System.out.println("Nghich dao phan so P1: "+P3.toString());
-        System.out.println("Phan so P2 toi gian: "+P2.toString());
-
-        //Add     
-        System.out.print("P1+P2 (toi gian) = : ");
-        P3.setDen(P1.getDen()); 
-        P3.setNum(P1.getNum());
-        P3.add(P2);
-        P3.reduce();
-        System.out.println(P3.toString());
-
-         //Subtract
-        System.out.print("P1-P2 (toi gian) = : ");
-        P3.setDen(P1.getDen());
-        P3.setNum(P1.getNum());
-        P3.subtract(P2);
-        P3.reduce();
-        System.out.println(P3.toString());
-
-        //multiply
-        System.out.print("P1*P2 (toi gian) = : ");
-        P3.setDen(P1.getDen());
-        P3.setNum(P1.getNum());
-        P3.multiply(P2);
-        P3.reduce();
-        System.out.println(P3.toString());
-
-        //divide
-        System.out.print("P1/P2 (toi gian) = : ");
-        P3.setDen(P1.getDen());
-        P3.setNum(P1.getNum());
-        P3.divide(P2);
-        P3.reduce();
-        System.out.println(P3.toString());
-
-        // Comparision
-        System.out.print("P1 ");
-        P1.comparision(P2);
-    } 
-}
-class Rational {
+// Bai 4
+public class Rational {
     private 
     int numerator;
     int denominator;
@@ -133,4 +82,54 @@ class Rational {
         else
             System.out.println("Nho hon");
     }
+    public static void main(String[] args){
+        Rational P1 = new Rational(15, 10);
+        Rational P2 = new Rational(5,6);
+        System.out.println("Phan so P1: "+P1.toString());
+        P1.reduce();
+        System.out.println("Phan so P1 toi gian: "+P1.toString());
+        // P3 là phan so trung gian cho cac phep toan
+        Rational P3= new Rational();
+        P3.setDen(P1.getDen());
+        P3.setNum(P1.getNum());
+        P3.reciprocal();
+        System.out.println("Nghich dao phan so P1: "+P3.toString());
+        System.out.println("Phan so P2 toi gian: "+P2.toString());
+
+        //Add     
+        System.out.print("P1+P2 (toi gian) = : ");
+        P3.setDen(P1.getDen()); 
+        P3.setNum(P1.getNum());
+        P3.add(P2);
+        P3.reduce();
+        System.out.println(P3.toString());
+
+         //Subtract
+        System.out.print("P1-P2 (toi gian) = : ");
+        P3.setDen(P1.getDen());
+        P3.setNum(P1.getNum());
+        P3.subtract(P2);
+        P3.reduce();
+        System.out.println(P3.toString());
+
+        //multiply
+        System.out.print("P1*P2 (toi gian) = : ");
+        P3.setDen(P1.getDen());
+        P3.setNum(P1.getNum());
+        P3.multiply(P2);
+        P3.reduce();
+        System.out.println(P3.toString());
+
+        //divide
+        System.out.print("P1/P2 (toi gian) = : ");
+        P3.setDen(P1.getDen());
+        P3.setNum(P1.getNum());
+        P3.divide(P2);
+        P3.reduce();
+        System.out.println(P3.toString());
+
+        // Comparision
+        System.out.print("P1 ");
+        P1.comparision(P2);
+    } 
 }

@@ -1,25 +1,6 @@
+// Bai 3
 import java.util.Scanner;
-public class Bai3 {
-    public static void main(String[] args){
-        /*Account ACC = new Account(21000251, "Cao Viet Hoang", 1000);
-        Account ACC=new Account();
-        ACC.setTenTK();
-        ACC.setSTK();
-        ACC.setTien();
-        System.out.println(ACC.toString()); */
-        Account acc1=new Account(123456, "Nguyen Van Hoang");
-        System.out.println(acc1.toString());
-        acc1.NapTien(100);
-        System.out.println(acc1.getTien());
-        acc1.RutTien(20);
-        System.out.println(acc1.getTien());
-        acc1.DaoHan();
-        System.out.println(acc1.getTien());
-        acc1.ChuyenKhoan(40);
-        System.out.println(acc1.getTien());
-    }
-}
-class Account {
+public class Account {
     private
         long STK;
         String TenTK;
@@ -100,5 +81,23 @@ class Account {
             System.out.println("Khong hop le, Nhap lai");
         else 
             this.Tien-=TienCK;
+    }
+    public static void main(String[] args){
+        /*Account ACC = new Account(21000251, "Cao Viet Hoang", 1000);
+        Account ACC=new Account();
+        ACC.setTenTK();
+        ACC.setSTK();
+        ACC.setTien();
+        System.out.println(ACC.toString()); */
+        Account acc1=new Account(123456, "Nguyen Van Hoang");
+        System.out.println(acc1.toString());
+        acc1.NapTien(100);
+        System.out.println(acc1.getTien());
+        acc1.RutTien(20);
+        System.out.println(acc1.getTien());
+        acc1.DaoHan();
+        System.out.println(acc1.getTien());
+        acc1.ChuyenKhoan(40);
+        System.out.println(acc1.getTien());
     }
 }

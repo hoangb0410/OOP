@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Bai6 {
+public class Bai6_SinhVien {
     static Scanner sc = new Scanner(System.in);
     static void nhapThongTin(SV tt) {
         System.out.print("Nhap MSSV: ");

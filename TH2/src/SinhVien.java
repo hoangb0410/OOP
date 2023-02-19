@@ -20,28 +20,20 @@ class SinhVien {
         this.TH=TH;
     }
     Scanner sc = new Scanner(System.in);
-    public void setMSV()
+    public void setMSV(int MSV)
     {
-        System.out.print("Nhap MSSV: ");
-        int MSV = sc.nextInt();
         this.MSSV=MSV;
     }
-    public void setName()
+    public void setName(String HoTen)
     {
-        System.out.print("Nhap Ho ten: ");
-        String HoTen = sc.nextLine();
         this.HoTen=HoTen;
     }
-    public void setLT()
+    public void setLT(float LT)
     {
-        System.out.print("Nhap diem LT: ");
-        float LT = sc.nextFloat();
         this.LT=LT;
     }
-    public void setTH()
+    public void setTH(float TH)
     {
-        System.out.print("Nhap diem TH: ");
-        float TH = sc.nextFloat();
         this.TH=TH;
     }
     public int getMSSV()
@@ -73,10 +65,15 @@ class SinhVien {
         SinhVien sv2 = new SinhVien(19020531,"Nguyen Tien Dung",9,9);
         Scanner sc = new Scanner(System.in);
         SinhVien sv3 = new SinhVien();
-        sv3.setName();
-        sv3.setMSV();
-        sv3.setLT();
-        sv3.setTH();
+        System.out.print("Nhap MSSV: ");
+        sv3.setMSV(sc.nextInt());
+        sc.nextLine();
+        System.out.print("Nhap Ho ten: ");
+        sv3.setName(sc.nextLine());
+        System.out.print("Nhap diem LT: ");
+        sv3.setLT(sc.nextFloat());
+        System.out.print("Nhap diem TH: ");
+        sv3.setTH(sc.nextFloat());
         System.out.printf("%-10s %-18s %-8s %-8s %-8s \n","MSSV","Ho ten","LT","TH","DTB");
         System.out.printf("%-10d %-18s %-8.2f %-8.2f %-8.2f \n",sv1.getMSSV(), sv1.getName(),sv1.getLT(),sv1.getTH(),sv1.DTB());
         System.out.printf("%-10d %-18s %-8.2f %-8.2f %-8.2f \n",sv2.getMSSV(), sv2.getName(),sv2.getLT(),sv2.getTH(),sv2.DTB());

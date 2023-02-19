@@ -15,23 +15,16 @@ public class Account {
         this.TenTK =TenTK;
         this.Tien=Tien;
     }
-    Scanner sc = new Scanner(System.in);
-    public void setSTK()
+    public void setSTK(long STK)
     {
-        System.out.print("Nhap STK: ");
-        long STK = sc.nextLong();
         this.STK=STK;
     }
-    public void setTenTK()
+    public void setTenTK(String TenTK)
     {
-        System.out.print("Nhap Ten TK: ");
-        String TenTK = sc.nextLine();
         this.TenTK=TenTK;
     }
-    public void setTien()
+    public void setTien(double Tien)
     {
-        System.out.print("Nhap Tien: ");
-        double Tien = sc.nextDouble();
         this.Tien=Tien;
     }
     public long getSTK()
@@ -83,21 +76,32 @@ public class Account {
             this.Tien-=TienCK;
     }
     public static void main(String[] args){
-        /*Account ACC = new Account(21000251, "Cao Viet Hoang", 1000);
         Account ACC=new Account();
-        ACC.setTenTK();
-        ACC.setSTK();
-        ACC.setTien();
-        System.out.println(ACC.toString()); */
-        Account acc1=new Account(123456, "Nguyen Van Hoang");
-        System.out.println(acc1.toString());
-        acc1.NapTien(100);
-        System.out.println(acc1.getTien());
-        acc1.RutTien(20);
-        System.out.println(acc1.getTien());
-        acc1.DaoHan();
-        System.out.println(acc1.getTien());
-        acc1.ChuyenKhoan(40);
-        System.out.println(acc1.getTien());
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Nhap Ten TK: ");
+        ACC.setTenTK(sc.nextLine());
+        System.out.print("Nhap STK: ");
+        ACC.setSTK(sc.nextLong());
+        System.out.print("Nhap Tien: ");
+        ACC.setTien(sc.nextDouble());
+        System.out.println(ACC.toString());
+
+        System.out.print("Nhap Tien Nap: ");
+        ACC.NapTien(sc.nextDouble());
+        System.out.print("Tien sau khi nap: ");
+        System.out.println(ACC.getTien());
+        System.out.print("Nhap Tien Rut: ");
+        ACC.RutTien(sc.nextDouble());
+        System.out.print("Tien con lai sau khi Rut: ");
+        System.out.println(ACC.getTien());
+        System.out.print("Tien sau dao han: ");
+        ACC.DaoHan();
+        System.out.println(ACC.getTien());
+        System.out.print("Nhap Tien Chuyen khoan: ");
+        ACC.ChuyenKhoan(sc.nextDouble());
+        System.out.print("Tien con lai sau Chuyen khoan: ");
+        System.out.println(ACC.getTien());
+        sc.close();
     }
 }

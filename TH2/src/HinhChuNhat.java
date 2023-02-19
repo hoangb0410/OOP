@@ -2,9 +2,12 @@
 import java.util.Scanner;
 public class HinhChuNhat {
     private float dai, rong;
-    public void setdairong(float d, float r)
+    public void setDai(float d)
     {
         this.dai=d;
+    }
+    public void setRong(float r)
+    {
         this.rong=r;
     }
     public float getDai()
@@ -30,9 +33,10 @@ public class HinhChuNhat {
     public static void main(String[] args) {  
         HinhChuNhat HCN = new HinhChuNhat();
         Scanner sc = new Scanner(System.in);
-        float d= sc.nextFloat();
-        float r= sc.nextFloat();    
-        HCN.setdairong(d,r); 
+        System.out.print("Nhap chieu dai: ");   
+        HCN.setDai(sc.nextFloat());
+        System.out.print("Nhap chieu rong: ");  
+        HCN.setRong(sc.nextFloat()); 
         System.out.println("Chieu dai: "+HCN.getDai());
         System.out.println("Chieu rong: "+HCN.getRong());
         System.out.println("Dien tich: "+HCN.DienTich());

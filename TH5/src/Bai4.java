@@ -30,7 +30,7 @@ public class Bai4 {
         }
          
         System.out.println("---Thong tin cac giao dich dat---");
-        for (int i = 0; i < arrGiaoDichNha.size(); i++) {
+        for (int i = 0; i < arrGiaoDichDat.size(); i++) {
             System.out.println(arrGiaoDichDat.get(i).toString());
         }
          
@@ -53,21 +53,28 @@ public class Bai4 {
         System.out.println("Trung binh thanh tien cua giao dich dat= " + trungBinhThanhTien);
          
         // xuất ra các giao dịch của tháng 9 năm 2013
+        int dem=0;
         System.out.println("Cac giao dich dat cua thang 9 nam 2013: ");
         for (int i = 0; i < arrGiaoDichDat.size(); i++) {
-            String[] dateGiaoDichDat = arrGiaoDichDat.get(i).getNgayGiaoDich().split("/");
-            if (dateGiaoDichDat[1].equals("9") && dateGiaoDichDat[2].equals("2013")) {
+            if (arrGiaoDichDat.get(i).getNgayGiaoDich().contains("09/2013")==true)
+            {
+                dem++;
                 System.out.println(arrGiaoDichDat.get(i).toString());
             }
         }
-         
+        if (dem==0)
+            System.out.println("KHONG CO ");
+        dem=0;
         System.out.println("Cac giao dich nha cua thang 9 nam 2013: ");
         for (int i = 0; i < arrGiaoDichNha.size(); i++) {
-            String[] dateGiaoDichNha = arrGiaoDichNha.get(i).getNgayGiaoDich().split("/");
-            if (dateGiaoDichNha[1].equals("9") && dateGiaoDichNha[2].equals("2013")) {
+            if (arrGiaoDichNha.get(i).getNgayGiaoDich().contains("09/2013")==true)
+            {
+                dem++;
                 System.out.println(arrGiaoDichNha.get(i).toString());
             }
         }
+        if (dem==0)
+            System.out.println("KHONG CO ");
         scanner.close();
     }
 }
@@ -122,14 +129,13 @@ class GiaoDich {
     public void nhap() {
         System.out.print("Nhap ma giao dich: ");
         maGiaoDich = scanner.nextLine();
-        System.out.print("Nhap ngay giao dich (ngay/thang/nam): ");
+        System.out.print("Nhap ngay giao dich (DD/MM/YYYY): ");
         ngayGiaoDich = scanner.nextLine();
         System.out.print("Nhap don gia: ");
         donGia = Long.parseLong(scanner.nextLine());
         System.out.print("Nhap dien tich: ");
         dienTich = Float.parseFloat(scanner.nextLine());
     }
-     
     public String toString() {
         return "Ma giao dich: " + this.maGiaoDich + ", ngay giao dich: " + this.ngayGiaoDich + 
             ", don gia: " + this.donGia + ", dien tich: " + this.dienTich;

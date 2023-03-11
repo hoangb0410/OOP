@@ -29,19 +29,17 @@ public class Bai6 {
         for (int i = 0; i < arrHoaDonTheoGio.size(); i++) {
             System.out.println(arrHoaDonTheoGio.get(i).toString());
         }
-        System.out.println("---Thong tin cac hoa don theo gio---");
+        System.out.println("---Thong tin cac hoa don theo ngay---");
         for (int i = 0; i < arrHoaDonTheoNgay.size(); i++) {
             System.out.println(arrHoaDonTheoNgay.get(i).toString());
         }
         // Tinh trung binh hoa don tien phong 9/2013
         for (int i = 0; i < arrHoaDonTheoGio.size(); i++) {
-            String[] dateHoaDonTheoGio = arrHoaDonTheoGio.get(i).getNgayHD().split("/");
-            if (dateHoaDonTheoGio[1].equals("9") && dateHoaDonTheoGio[2].equals("2013"))
+            if (arrHoaDonTheoGio.get(i).getNgayHD().contains("09/2013")==true)
                 tongTienHoaDonTheoGio += arrHoaDonTheoGio.get(i).TTien();
         }
         for (int i = 0; i < arrHoaDonTheoNgay.size(); i++) {
-            String[] dateHoaDonTheoNgay = arrHoaDonTheoNgay.get(i).getNgayHD().split("/");
-            if (dateHoaDonTheoNgay[1].equals("9") && dateHoaDonTheoNgay[2].equals("2013"))
+            if (arrHoaDonTheoNgay.get(i).getNgayHD().contains("09/2013")==true)
                 tongTienHoaDonTheoNgay += arrHoaDonTheoNgay.get(i).TTien();
         }
         trungBinhCongHoaDon  = (tongTienHoaDonTheoGio+tongTienHoaDonTheoNgay) / (arrHoaDonTheoGio.size()+arrHoaDonTheoNgay.size());
@@ -105,16 +103,16 @@ class HoaDon{
         return this.DonGia;
     }
     protected void nhap(){
-        System.out.println("Ma Hoa Don: ");
+        System.out.print("Ma Hoa Don: ");
         MaHD = in.nextInt();
-        System.out.println("Ngay Hoa Don (Ngay/Thang/Nam): ");
+        System.out.print("Ngay Hoa Don (Ngay/Thang/Nam): ");
         NgayHD = in.next();
         in.nextLine();
-        System.out.println("Ten Khach Hang: ");
+        System.out.print("Ten Khach Hang: ");
         TenKH = in.nextLine();
-        System.out.println("Ma Phong: ");
+        System.out.print("Ma Phong: ");
         MaPhong = in.nextInt();
-        System.out.println("Don Gia: ");
+        System.out.print("Don Gia: ");
         DonGia = in.nextDouble();
     }
     public String toString()
@@ -124,7 +122,7 @@ class HoaDon{
 }
 class HoaDonTheoGio extends HoaDon{
     private 
-        double SoGioThue;
+        int SoGioThue;
         double ThanhTienTheoGio;
     public HoaDonTheoGio(){
         super();
@@ -143,22 +141,28 @@ class HoaDonTheoGio extends HoaDon{
     public void nhap()
     {
         super.nhap();
-        System.out.println("So Gio Thue: ");
+        System.out.print("So Gio Thue: ");
         SoGioThue = in.nextInt();
     }
     public double TTien(){
         if (SoGioThue<=24)
-            return this.ThanhTienTheoGio=(double)this.SoGioThue*this.DonGia;
+        {
+            this.ThanhTienTheoGio=(double)SoGioThue*DonGia;
+            return (double)SoGioThue*DonGia;
+        }
         else
-            return this.ThanhTienTheoGio=(double)24*this.DonGia;
+        {
+            this.ThanhTienTheoGio=(double)24*DonGia;
+            return (double)24*DonGia;
+        }
     }
     public String toString(){
-        return "Hoa Don Theo Gio: " + super.toString()+", So Gio Thue: "+this.SoGioThue+", Thanh Tien: "+ this.ThanhTienTheoGio+"]";
+        return "Hoa Don Theo Gio: " + super.toString()+", So Gio Thue: "+this.SoGioThue+", Thanh Tien: "+ ThanhTienTheoGio+"]";
     }
 }
 class HoaDonTheoNgay extends HoaDon{
     private 
-        double SoNgayThue;
+        int SoNgayThue;
         double ThanhTienTheoNgay;
     public HoaDonTheoNgay(){
         super();
@@ -177,14 +181,14 @@ class HoaDonTheoNgay extends HoaDon{
     public void nhap()
     {
         super.nhap();
-        System.out.println("So Ngay Thue: ");
+        System.out.print("So Ngay Thue: ");
         SoNgayThue = in.nextInt();
     }
     public double TTien(){
         if (SoNgayThue<=7)
-            return this.ThanhTienTheoNgay=this.SoNgayThue*this.DonGia;
+            return this.ThanhTienTheoNgay=SoNgayThue*DonGia;
         else
-            return this.ThanhTienTheoNgay=this.SoNgayThue*this.DonGia*0.8;
+            return this.ThanhTienTheoNgay=SoNgayThue*DonGia*0.8;
     }
     public String toString(){
         return "Hoa Don Theo Ngay: " + super.toString()+", So Ngay Thue: "+this.SoNgayThue+", Thanh Tien: "+ this.ThanhTienTheoNgay+"]";

@@ -32,7 +32,10 @@ public class Bai7 {
                     khach.nhap();
                     listPerson.ThemNguoi(khach);
                     break;
-                case 4:                
+                case 4:
+                    listPerson.SortByName();
+                    break;
+                case 5:                
                     listPerson.xuat();
                     break;
                 
@@ -70,7 +73,7 @@ class Person{
     }
     Scanner in = new Scanner(System.in);
     protected void nhap(){
-        System.out.print("Ho va ten ");
+        System.out.print("Ho va ten: ");
         HoTen = in.nextLine();
         System.out.print("Dia Chi: ");
         DiaChi = in.nextLine();
@@ -78,7 +81,7 @@ class Person{
 
 // to String
     public String toString(){
-        return "Thong tin: [Ho Ten: "+HoTen+", Dia Chi: "+DiaChi; 
+        return "Ho Ten: "+HoTen+", Dia Chi: "+DiaChi; 
     }
 }
 class Student extends Person {
@@ -116,7 +119,7 @@ class Student extends Person {
     }
 // toString
     public String toString(){
-        return "Thong tin hoc sinh: "+super.toString()+", Diem mon 1: "+this.mon1+ ", Diem mon 2: "+this.mon2;
+        return "Thong tin sinh vien: "+super.toString()+", Diem mon 1: "+this.mon1+ ", Diem mon 2: "+this.mon2;
     }
 }
 class Employee extends Person{
@@ -135,6 +138,11 @@ class Employee extends Person{
     }
     public double getHeSoLuong(){
         return this.heSoLuong;
+    }
+    public void nhap(){
+        super.nhap();
+        System.out.print("He so luong : ");
+        heSoLuong = in.nextDouble();
     }
     public String toString(){
         return "Thong tin nhan vien: "+super.toString()+", He so luong: "+this.heSoLuong;
@@ -179,8 +187,9 @@ class Customer extends Person{
         super.nhap();
         System.out.print("Ten cong ty: ");
         TenCty = in.nextLine();
-        System.out.print("Diem tri gia hoa don: ");
+        System.out.print("Tri gia hoa don: ");
         TriGiaHoaDon = in.nextDouble();
+        in.nextLine();
         System.out.print("Danh Gia: ");
         DanhGia=in.nextLine();
     }
@@ -220,7 +229,7 @@ class QuanLy{
         }     
     }
     // sap xep danh sach theo thu tu ho ten
-    public void SortByNam(){
+    public void SortByName(){
         for (i=0;i<n-1;i++)
             for (int j=i+1;j<n;j++)
                 if (ps[j].getHoTen().compareTo(ps[i].getHoTen())<0){
